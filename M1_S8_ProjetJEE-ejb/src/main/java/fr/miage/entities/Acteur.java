@@ -6,10 +6,12 @@
 package fr.miage.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  *
@@ -18,18 +20,33 @@ import javax.persistence.Id;
 @Entity
 public class Acteur implements Serializable {
 
+    //Attributs
+    private String nomActeur;
+    private String prenomActeur;
+    
+    @OneToMany
+    private List<Competence> listeCompetences;
+        
+    enum RoleActeur {
+        Candidat,
+        Collaborateur,
+        RH,
+        Manager
+    }
+    
+    private RoleActeur roleActeur;
+    
+    //LIENS BD
+    @OneToMany
+    private Candidature candidaturePostulee;
+    
+    @ManyToOne
+    private Equipe equipeActeur;
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    
-    
-    
-    
-    
-    
-    
     
     public Long getId() {
         return id;

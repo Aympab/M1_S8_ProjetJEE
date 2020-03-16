@@ -6,28 +6,33 @@
 package fr.miage.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.*;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author aympa
  */
 @Entity
-public class Competence implements Serializable {
+public class Demande implements Serializable {
 
     //Attributs
-    private String nomCompetence;
-
-    //LIENS BD
-    @ManyToMany
-    private Acteur acteurCompetent;
+    @OneToMany
+    private List<Competence> competencesDemandees;
     
-    @ManyToMany
-    private Demande demandeNecessitantLaCompetence; 
+    @OneToOne
+    private Equipe equipeDemandeuse;
+    
+    //LIENS POUR BD
+    @OneToOne
+    private FicheDePoste fichePosteDemandeuse;
 
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -51,10 +56,10 @@ public class Competence implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Competence)) {
+        if (!(object instanceof Demande)) {
             return false;
         }
-        Competence other = (Competence) object;
+        Demande other = (Demande) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -63,7 +68,7 @@ public class Competence implements Serializable {
 
     @Override
     public String toString() {
-        return "fr.miage.entities.Competence[ id=" + id + " ]";
+        return "fr.miage.entities.Demande[ id=" + id + " ]";
     }
     
 }

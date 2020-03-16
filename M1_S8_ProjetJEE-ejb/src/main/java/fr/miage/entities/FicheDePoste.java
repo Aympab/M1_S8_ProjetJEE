@@ -16,18 +16,31 @@ import javax.persistence.*;
  * @author aympa
  */
 @Entity
-public class Competence implements Serializable {
+public class FicheDePoste implements Serializable {
 
-    //Attributs
-    private String nomCompetence;
-
-    //LIENS BD
-    @ManyToMany
-    private Acteur acteurCompetent;
     
-    @ManyToMany
-    private Demande demandeNecessitantLaCompetence; 
-
+    //Attributs    
+    @OneToOne
+    private Demande demandePoste;
+    
+    private String nomPoste;
+    
+    enum StatutPoste{
+        Archivee,
+        EnCours,
+        Active
+    }
+    
+    private StatutPoste statutPoste;
+    
+    private String presentationEntreprise;
+    private String presentationPoste;
+    
+    
+    //LIENS BD
+    @OneToMany
+    private Candidature candidatureDemandeuse;
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -51,10 +64,10 @@ public class Competence implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Competence)) {
+        if (!(object instanceof FicheDePoste)) {
             return false;
         }
-        Competence other = (Competence) object;
+        FicheDePoste other = (FicheDePoste) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -63,7 +76,7 @@ public class Competence implements Serializable {
 
     @Override
     public String toString() {
-        return "fr.miage.entities.Competence[ id=" + id + " ]";
+        return "fr.miage.entities.FicheDePoste[ id=" + id + " ]";
     }
     
 }
