@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,35 +7,23 @@
 package fr.miage.entities;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.*;
+import javax.persistence.Id;
 
 /**
- *
+ * Classe qui regroupe les demandes et les compétences 
  * @author aympa
  */
 @Entity
-public class Candidature implements Serializable {
+public class DemandeDeCompetence implements Serializable {
 
     //Attributs
-    enum StatutCandidature{
-        Validee,
-        Refusee,
-        Active
-    }
+    private Long idDemande;
     
-    private StatutCandidature statutCandidature;
+    private Long idCompetence;
     
-    @OneToMany
-    private List<Acteur> candidats;
-    
-    @ManyToOne
-    private FicheDePoste poste;
-    
-    //LIENS BD
     
     private static final long serialVersionUID = 1L;
     @Id
@@ -59,10 +48,10 @@ public class Candidature implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Candidature)) {
+        if (!(object instanceof DemandeDeCompetence)) {
             return false;
         }
-        Candidature other = (Candidature) object;
+        DemandeDeCompetence other = (DemandeDeCompetence) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -71,7 +60,7 @@ public class Candidature implements Serializable {
 
     @Override
     public String toString() {
-        return "fr.miage.entities.Candidature[ id=" + id + " ]";
+        return "fr.miage.entities.DemandeDeCompetence[ id=" + id + " ]";
     }
     
 }

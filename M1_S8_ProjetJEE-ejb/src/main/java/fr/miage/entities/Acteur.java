@@ -38,7 +38,7 @@ public class Acteur implements Serializable {
     
     //LIENS BD
     @OneToMany
-    private Candidature candidaturePostulee;
+    private List<Candidature> candidaturePostulee;
     
     @ManyToOne
     private Equipe equipeActeur;

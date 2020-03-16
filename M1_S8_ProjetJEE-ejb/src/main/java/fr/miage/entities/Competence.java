@@ -6,6 +6,7 @@
 package fr.miage.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,11 +23,11 @@ public class Competence implements Serializable {
     private String nomCompetence;
 
     //LIENS BD
-    @ManyToMany
+    @ManyToOne
     private Acteur acteurCompetent;
     
-    @ManyToMany
-    private Demande demandeNecessitantLaCompetence; 
+    //@ManyToMany
+    //private List<Demande> demandeNecessitantLaCompetence; 
 
     private static final long serialVersionUID = 1L;
     @Id

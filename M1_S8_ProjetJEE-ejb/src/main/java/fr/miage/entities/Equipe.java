@@ -28,7 +28,7 @@ public class Equipe implements Serializable {
     
     
     //LIENS BD
-    @OneToMany
+    @OneToOne
     private Demande demandeEquipe;
     
     private static final long serialVersionUID = 1L;

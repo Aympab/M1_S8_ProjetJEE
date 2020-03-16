@@ -6,6 +6,7 @@
 package fr.miage.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,7 +40,7 @@ public class FicheDePoste implements Serializable {
     
     //LIENS BD
     @OneToMany
-    private Candidature candidatureDemandeuse;
+    private List<Candidature> candidatureDemandeuse;
     
     private static final long serialVersionUID = 1L;
     @Id
