@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.miage.business;
+package fr.miage.repositories;
 
-import fr.miage.entities.Candidature;
+import fr.miage.entities.Acteur;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author aympa
  */
 @Stateless
-public class CandidatureFacade extends AbstractFacade<Candidature> implements CandidatureFacadeLocal {
+public class ActeurFacade extends AbstractFacade<Acteur> implements ActeurFacadeLocal {
 
     @PersistenceContext(unitName = "fr.miage_M1_S8_ProjetJEE-ejb_ejb_1.0PU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class CandidatureFacade extends AbstractFacade<Candidature> implements Ca
         return em;
     }
 
-    public CandidatureFacade() {
-        super(Candidature.class);
+    public ActeurFacade() {
+        super(Acteur.class);
     }
     
 }

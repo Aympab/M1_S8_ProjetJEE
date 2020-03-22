@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.miage.business;
+package fr.miage.repositories;
 
 import fr.miage.entities.Competence;
 import java.util.List;

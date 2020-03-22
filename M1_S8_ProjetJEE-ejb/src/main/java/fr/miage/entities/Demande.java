@@ -24,7 +24,7 @@ public class Demande implements Serializable {
 
     //Attributs
     //@ManyToMany
-    //private List<Competence> competencesDemandees;
+    private List<Competence> competencesDemandees;
     
     @OneToOne
     private Equipe equipeDemandeuse;

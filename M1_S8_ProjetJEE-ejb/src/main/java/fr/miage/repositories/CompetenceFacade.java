@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.miage.business;
+package fr.miage.repositories;
 
-import fr.miage.entities.Equipe;
+import fr.miage.entities.Competence;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author aympa
  */
 @Stateless
-public class EquipeFacade extends AbstractFacade<Equipe> implements EquipeFacadeLocal {
+public class CompetenceFacade extends AbstractFacade<Competence> implements CompetenceFacadeLocal {
 
     @PersistenceContext(unitName = "fr.miage_M1_S8_ProjetJEE-ejb_ejb_1.0PU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class EquipeFacade extends AbstractFacade<Equipe> implements EquipeFacade
         return em;
     }
 
-    public EquipeFacade() {
-        super(Equipe.class);
+    public CompetenceFacade() {
+        super(Competence.class);
     }
     
 }

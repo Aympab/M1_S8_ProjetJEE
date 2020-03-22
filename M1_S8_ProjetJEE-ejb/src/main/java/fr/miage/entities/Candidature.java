@@ -20,7 +20,7 @@ import javax.persistence.*;
 public class Candidature implements Serializable {
 
     //Attributs
-    enum StatutCandidature{
+    public enum StatutCandidature{
         Validee,
         Refusee,
         Active

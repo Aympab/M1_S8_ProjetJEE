@@ -26,7 +26,7 @@ public class FicheDePoste implements Serializable {
     
     private String nomPoste;
     
-    enum StatutPoste{
+    public enum StatutPoste{
         Archivee,
         EnCours,
         Active
