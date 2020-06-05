@@ -23,7 +23,7 @@ import javax.persistence.OneToOne;
 public class Demande implements Serializable {
 
     //Attributs
-    //@ManyToMany
+    @ManyToMany
     private List<Competence> competencesDemandees;
     
     @OneToOne

@@ -5,8 +5,12 @@
  */
 package fr.miage.business;
 
+import fr.miage.entities.Acteur;
+import fr.miage.entities.Candidature;
+import fr.miage.entities.FicheDePoste;
 import fr.miage.repositories.ActeurFacadeLocal;
 import fr.miage.repositories.CandidatureFacadeLocal;
+import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -24,4 +28,25 @@ public class GestionCandidature implements GestionCandidatureLocal {
     private ActeurFacadeLocal facadeActeur;
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+
+    @Override
+    public void creerCandidature(Candidature.StatutCandidature statut, ArrayList<Acteur> candidats, FicheDePoste poste) {
+    }
+
+    @Override
+    public void modifierCandidature(Long idCandidature, Candidature.StatutCandidature statut, ArrayList<Acteur> candidats, FicheDePoste poste) {
+    }
+
+    @Override
+    public void supprimerCandidature(Long idCandidature) {
+    }
+
+    @Override
+    public ArrayList<Candidature> listerCandidatures() {
+        return null;
+    }
+
+    @Override
+    public void validerCandidature(Long idCandidature) {
+    }
 }

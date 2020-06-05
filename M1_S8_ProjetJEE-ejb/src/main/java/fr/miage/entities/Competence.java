@@ -26,9 +26,10 @@ public class Competence implements Serializable {
     @ManyToOne
     private Acteur acteurCompetent;
     
-    //@ManyToMany
-    //private List<Demande> demandeNecessitantLaCompetence; 
-
+    @ManyToMany(mappedBy="competencesDemandees") //Ca ca fait le commentaire en dessous
+    //A mettre sur les OneToMany
+    private List<Demande> demandeNecessitantLaCompetence; 
+//Définir qui est la table maitre (celle qui a la priorité sur l'association, ici plutot la demande) elle porte m'attribut birectionnel
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

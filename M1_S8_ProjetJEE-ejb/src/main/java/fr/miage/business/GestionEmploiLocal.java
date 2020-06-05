@@ -32,9 +32,9 @@ public interface GestionEmploiLocal {
     public ArrayList<FicheDePoste> listerPostes();
     
     
-    public void creerDemande(Equipe equipe, ArrayList<Competence> competencesDemandees);
-    public void modifierDemande(Long idDemande)
-    public void creerDemandeDeCompetence()
+//    public void creerDemande(Equipe equipe, ArrayList<Competence> competencesDemandees);
+//    public void modifierDemande(Long idDemande)
+//    public void creerDemandeDeCompetence()
     
     
     public void validerDemande(Long idDemande);

@@ -16,12 +16,15 @@ import javax.persistence.Id;
  * Classe qui regroupe les demandes et les compétences 
  * @author aympa
  */
-@Entity
+//@Entity
 public class DemandeDeCompetence implements Serializable {
 
     //Attributs
-    private Long idDemande;
+    private Demande demande;
+    //private ArrayList<Competence> competence;
     
+    
+    private Long idDemande;    
     private Long idCompetence;
     
     
