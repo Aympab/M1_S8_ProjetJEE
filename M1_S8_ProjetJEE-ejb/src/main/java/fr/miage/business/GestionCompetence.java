@@ -37,9 +37,7 @@ public class GestionCompetence implements GestionCompetenceLocal {
     @Override
     public void creerCompetence(String nomCompetence) {
         Competence comp = new Competence();
-//        Acteur acteur = facadeActeur.find(idActeur);
-        
-//        comp.setActeurCompetent(acteur);
+        comp.setNomCompetence(nomCompetence);
         
         facadeCompetence.create(comp);
     }
