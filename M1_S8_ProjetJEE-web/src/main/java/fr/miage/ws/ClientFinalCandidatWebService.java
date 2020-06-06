@@ -35,13 +35,13 @@ public class ClientFinalCandidatWebService {
     }
 
     @WebMethod(operationName = "consulterFicheDePoste")
-    public FicheDePoste consulterFicheDePoste(@WebParam(name = "idFicheDePoste") String idFicheDePoste) {
-        return ejbRef.consulterFicheDePoste(Long.parseLong(idFicheDePoste));
+    public String consulterFicheDePoste(@WebParam(name = "idFicheDePoste") String idFicheDePoste) {
+        return ejbRef.getFicheDePosteById(Long.parseLong(idFicheDePoste));
     }
 
     @WebMethod(operationName = "creerCandidature")
     @Oneway
-    public void creerCandidature(@WebParam(name = "statut") String statut, @WebParam(name = "candidats") String idCandidat, @WebParam(name = "poste") String idPoste) {
+    public void creerCandidature(@WebParam(name = "statut") String statut, @WebParam(name = "candidat") String idCandidat, @WebParam(name = "poste") String idPoste) {
 
         StatutCandidature parsedStatus = null;
 
@@ -59,8 +59,10 @@ public class ClientFinalCandidatWebService {
         
         //TODO :
         //Faire un get sur le ID candidats pour récupérer le bon candidat
+        Acteur candidat = ejbRef.getCandidatById(Long.parseLong(idCandidat));
         //Faire un get de la fiche de poste
-        ejbRef.creerCandidature(parsedStatus, new Acteur(), new FicheDePoste());
+//        FicheDePoste poste = ejbRef.getFicheDePosteById(Long.parseLong(idPoste));
+//        ejbRef.creerCandidature(parsedStatus, candidat, poste);
     }
 
 }

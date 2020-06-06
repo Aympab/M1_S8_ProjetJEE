@@ -41,7 +41,7 @@ public class GestionServiceCandidat {
         return gestionCandidature.getCandidatById(idCandidature);
     }
     
-    public FicheDePoste getFicheDePosteById(Long idFicheDePoste) {
+    public String getFicheDePosteById(Long idFicheDePoste) {
         return gestionEmploi.getFicheDePosteById(idFicheDePoste);
     }
 }

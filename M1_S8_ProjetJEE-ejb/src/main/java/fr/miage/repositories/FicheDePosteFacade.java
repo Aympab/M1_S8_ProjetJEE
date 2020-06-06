@@ -28,5 +28,5 @@ public class FicheDePosteFacade extends AbstractFacade<FicheDePoste> implements 
     public FicheDePosteFacade() {
         super(FicheDePoste.class);
     }
-    
+
 }
