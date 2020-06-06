@@ -30,7 +30,7 @@ public class GestionCandidature implements GestionCandidatureLocal {
     // "Insert Code > Add Business Method")
 
     @Override
-    public void creerCandidature(Candidature.StatutCandidature statut, ArrayList<Acteur> candidats, FicheDePoste poste) {
+    public void creerCandidature(Candidature.StatutCandidature statut, Acteur candidat, FicheDePoste poste) {
     }
 
     @Override

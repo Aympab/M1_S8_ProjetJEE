@@ -19,7 +19,7 @@ import javax.ejb.Local;
 @Local
 public interface GestionCandidatureLocal {
     
-    public void creerCandidature(StatutCandidature statut, ArrayList<Acteur> candidats, FicheDePoste poste);
+    public void creerCandidature(StatutCandidature statut, Acteur candidat, FicheDePoste poste);
     public void modifierCandidature(Long idCandidature, StatutCandidature statut, ArrayList<Acteur> candidats, FicheDePoste poste);
     public void supprimerCandidature(Long idCandidature);
     

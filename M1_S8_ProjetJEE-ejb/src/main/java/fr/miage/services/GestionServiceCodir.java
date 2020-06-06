@@ -5,8 +5,12 @@
  */
 package fr.miage.services;
 
+import fr.miage.business.GestionCandidature;
 import fr.miage.business.GestionEmploi;
+import fr.miage.entities.Acteur;
+import fr.miage.entities.Candidature;
 import fr.miage.entities.Demande;
+import fr.miage.entities.FicheDePoste;
 import java.util.ArrayList;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
@@ -18,14 +22,9 @@ import javax.ejb.LocalBean;
 @Stateless
 @LocalBean
 public class GestionServiceCodir {
-    
-    private GestionEmploi gestionEmploi ;
+ 
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
-    
-    public ArrayList<Demande> listerDemandesACombler() {
-        return gestionEmploi.listerDemandesACombler();
-    }
     
 }
