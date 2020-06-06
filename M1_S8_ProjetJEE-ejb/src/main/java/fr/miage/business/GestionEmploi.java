@@ -56,4 +56,8 @@ public class GestionEmploi implements GestionEmploiLocal {
     public ArrayList<Demande> listerDemandesACombler() {
         return null;
     }
+    
+    public FicheDePoste getFicheDePoste(Long idFicheDePoste){
+        return facadeFicheDePoste.find(idFicheDePoste);
+    }
 }
