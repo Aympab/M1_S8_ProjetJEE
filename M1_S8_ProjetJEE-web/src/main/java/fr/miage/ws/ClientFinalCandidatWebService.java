@@ -7,6 +7,7 @@ package fr.miage.ws;
 
 import fr.miage.entities.Acteur;
 import fr.miage.entities.Candidature;
+import fr.miage.entities.Candidature.StatutCandidature;
 import fr.miage.entities.Demande;
 import fr.miage.entities.FicheDePoste;
 import fr.miage.services.GestionServiceCandidat;
@@ -40,8 +41,26 @@ public class ClientFinalCandidatWebService {
 
     @WebMethod(operationName = "creerCandidature")
     @Oneway
-    public void creerCandidature(@WebParam(name = "statut") Candidature.StatutCandidature statut, @WebParam(name = "candidats") Acteur candidat, @WebParam(name = "poste") FicheDePoste poste) {
-        ejbRef.creerCandidature(statut, candidat, poste);
+    public void creerCandidature(@WebParam(name = "statut") String statut, @WebParam(name = "candidats") String idCandidat, @WebParam(name = "poste") String idPoste) {
+
+        StatutCandidature parsedStatus = null;
+
+        switch (statut) {
+            case "Validee":
+                parsedStatus = StatutCandidature.Validee;
+                break;
+            case "Refusee":
+                parsedStatus = StatutCandidature.Refusee;
+                break;
+            case "Active":
+                parsedStatus = StatutCandidature.Active;
+                break;
+        }
+        
+        //TODO :
+        //Faire un get sur le ID candidats pour récupérer le bon candidat
+        //Faire un get de la fiche de poste
+        ejbRef.creerCandidature(parsedStatus, new Acteur(), new FicheDePoste());
     }
-    
+
 }
