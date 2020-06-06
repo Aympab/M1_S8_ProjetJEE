@@ -45,6 +45,7 @@ public class NewWebService {
 //    @Oneway
     public void supprimerFicheDePoste(@WebParam(name = "idFicheDePoste") String idFicheDePoste) {
         //Conversion en Long + virer les oneWay
+        
         ejbRef.supprimerFicheDePoste(Long.parseLong(idFicheDePoste));
     }
 

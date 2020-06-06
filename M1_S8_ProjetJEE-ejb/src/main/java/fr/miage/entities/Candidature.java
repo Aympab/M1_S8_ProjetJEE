@@ -28,8 +28,8 @@ public class Candidature implements Serializable {
     
     private StatutCandidature statutCandidature;
     
-    @OneToMany
-    private List<Acteur> candidats;
+    @OneToOne
+    private Acteur candidat;
     
     @ManyToOne
     private FicheDePoste poste;
