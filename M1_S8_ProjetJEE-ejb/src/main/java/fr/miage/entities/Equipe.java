@@ -44,6 +44,30 @@ public class Equipe implements Serializable {
         this.id = id;
     }
 
+    public String getNomEquipe() {
+        return nomEquipe;
+    }
+
+    public void setNomEquipe(String nomEquipe) {
+        this.nomEquipe = nomEquipe;
+    }
+
+    public List<Acteur> getMembres() {
+        return membres;
+    }
+
+    public void setMembres(List<Acteur> membres) {
+        this.membres = membres;
+    }
+
+    public Demande getDemandeEquipe() {
+        return demandeEquipe;
+    }
+
+    public void setDemandeEquipe(Demande demandeEquipe) {
+        this.demandeEquipe = demandeEquipe;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;

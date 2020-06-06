@@ -55,6 +55,54 @@ public class FicheDePoste implements Serializable {
         this.id = id;
     }
 
+    public Demande getDemandePoste() {
+        return demandePoste;
+    }
+
+    public void setDemandePoste(Demande demandePoste) {
+        this.demandePoste = demandePoste;
+    }
+
+    public String getNomPoste() {
+        return nomPoste;
+    }
+
+    public void setNomPoste(String nomPoste) {
+        this.nomPoste = nomPoste;
+    }
+
+    public StatutPoste getStatutPoste() {
+        return statutPoste;
+    }
+
+    public void setStatutPoste(StatutPoste statutPoste) {
+        this.statutPoste = statutPoste;
+    }
+
+    public String getPresentationEntreprise() {
+        return presentationEntreprise;
+    }
+
+    public void setPresentationEntreprise(String presentationEntreprise) {
+        this.presentationEntreprise = presentationEntreprise;
+    }
+
+    public String getPresentationPoste() {
+        return presentationPoste;
+    }
+
+    public void setPresentationPoste(String presentationPoste) {
+        this.presentationPoste = presentationPoste;
+    }
+
+    public List<Candidature> getCandidatureDemandeuse() {
+        return candidatureDemandeuse;
+    }
+
+    public void setCandidatureDemandeuse(List<Candidature> candidatureDemandeuse) {
+        this.candidatureDemandeuse = candidatureDemandeuse;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;

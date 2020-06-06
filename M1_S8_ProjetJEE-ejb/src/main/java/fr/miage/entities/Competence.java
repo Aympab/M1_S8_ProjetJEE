@@ -27,7 +27,6 @@ public class Competence implements Serializable {
     private Acteur acteurCompetent;
     
     @ManyToMany(mappedBy="competencesDemandees") //Ca ca fait le commentaire en dessous
-    //A mettre sur les OneToMany
     private List<Demande> demandeNecessitantLaCompetence; 
 //Définir qui est la table maitre (celle qui a la priorité sur l'association, ici plutot la demande) elle porte m'attribut birectionnel
     private static final long serialVersionUID = 1L;
@@ -66,6 +65,30 @@ public class Competence implements Serializable {
     @Override
     public String toString() {
         return "fr.miage.entities.Competence[ id=" + id + " ]";
+    }
+
+    public String getNomCompetence() {
+        return nomCompetence;
+    }
+
+    public void setNomCompetence(String nomCompetence) {
+        this.nomCompetence = nomCompetence;
+    }
+
+    public Acteur getActeurCompetent() {
+        return acteurCompetent;
+    }
+
+    public void setActeurCompetent(Acteur acteurCompetent) {
+        this.acteurCompetent = acteurCompetent;
+    }
+
+    public List<Demande> getDemandeNecessitantLaCompetence() {
+        return demandeNecessitantLaCompetence;
+    }
+
+    public void setDemandeNecessitantLaCompetence(List<Demande> demandeNecessitantLaCompetence) {
+        this.demandeNecessitantLaCompetence = demandeNecessitantLaCompetence;
     }
     
 }

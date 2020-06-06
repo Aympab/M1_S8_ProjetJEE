@@ -31,7 +31,7 @@ public class Candidature implements Serializable {
     @OneToOne
     private Acteur candidat;
     
-    @ManyToOne
+    @OneToOne
     private FicheDePoste poste;
     
     //LIENS BD
@@ -47,6 +47,30 @@ public class Candidature implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public StatutCandidature getStatutCandidature() {
+        return statutCandidature;
+    }
+
+    public void setStatutCandidature(StatutCandidature statutCandidature) {
+        this.statutCandidature = statutCandidature;
+    }
+
+    public Acteur getCandidat() {
+        return candidat;
+    }
+
+    public void setCandidat(Acteur candidat) {
+        this.candidat = candidat;
+    }
+
+    public FicheDePoste getPoste() {
+        return poste;
+    }
+
+    public void setPoste(FicheDePoste poste) {
+        this.poste = poste;
     }
 
     @Override

@@ -5,7 +5,9 @@
  */
 package fr.miage.business;
 
+import fr.miage.entities.Acteur;
 import fr.miage.entities.Competence;
+import fr.miage.entities.Equipe;
 import fr.miage.repositories.ActeurFacadeLocal;
 import fr.miage.repositories.CompetenceFacadeLocal;
 import fr.miage.repositories.EquipeFacadeLocal;
@@ -28,11 +30,18 @@ public class GestionCompetence implements GestionCompetenceLocal {
     
     @EJB
     private ActeurFacadeLocal facadeActeur;
+    
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 
     @Override
     public void creerCompetence(String nomCompetence) {
+        Competence comp = new Competence();
+//        Acteur acteur = facadeActeur.find(idActeur);
+        
+//        comp.setActeurCompetent(acteur);
+        
+        facadeCompetence.create(comp);
     }
 
     @Override
@@ -61,5 +70,17 @@ public class GestionCompetence implements GestionCompetenceLocal {
     @Override
     public ArrayList<Competence> listerCompetencesManquantes() {
         return null;
+    }
+
+    @Override
+    public void creerEquipe(String nomEquipe) {
+        Equipe equipe = new Equipe();
+        equipe.setNomEquipe(nomEquipe);
+        
+        facadeEquipe.create(equipe);
+    }
+
+    @Override
+    public void supprimerEquipe(Long idEquipe) {
     }
 }

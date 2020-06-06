@@ -7,10 +7,12 @@ package fr.miage.business;
 
 import fr.miage.entities.Acteur;
 import fr.miage.entities.Candidature;
+import fr.miage.entities.Competence;
 import fr.miage.entities.FicheDePoste;
 import fr.miage.repositories.ActeurFacadeLocal;
 import fr.miage.repositories.CandidatureFacadeLocal;
 import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -31,6 +33,11 @@ public class GestionCandidature implements GestionCandidatureLocal {
 
     @Override
     public void creerCandidature(Candidature.StatutCandidature statut, Acteur candidat, FicheDePoste poste) {
+        Candidature candidature = new Candidature();
+        candidature.setCandidat(candidat);
+        candidature.setPoste(poste);
+        
+        facadeCandidature.create(candidature);
     }
 
     @Override
@@ -49,4 +56,20 @@ public class GestionCandidature implements GestionCandidatureLocal {
     @Override
     public void validerCandidature(Long idCandidature) {
     }
+    
+    @Override
+    public void creerCandidat(String nom, String prenom, List<Competence> listComp){
+        Acteur candidat = new Acteur();
+        candidat.setNomActeur(nom);
+        candidat.setPrenomActeur(prenom);
+        candidat.setRoleActeur(Acteur.RoleActeur.Candidat);
+        candidat.setListeCompetences(listComp);
+        
+        facadeActeur.create(candidat);
+    }
+    
+    public Acteur getCandidatById(Long idCandidat) {
+        return facadeActeur.find(idCandidat);
+    }
+
 }

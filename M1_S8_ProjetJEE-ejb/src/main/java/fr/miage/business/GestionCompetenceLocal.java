@@ -48,5 +48,9 @@ public interface GestionCompetenceLocal {
      */
     public ArrayList<Competence> listerCompetencesManquantes();
     
+    public void creerEquipe(String nomEquipe);
+    public void supprimerEquipe(Long idEquipe);
+    // TODO : modifierEquipe
+    
     
 }

@@ -5,7 +5,9 @@
  */
 package fr.miage.business;
 
+import fr.miage.entities.Competence;
 import fr.miage.entities.Demande;
+import fr.miage.entities.Equipe;
 import fr.miage.entities.FicheDePoste;
 import fr.miage.repositories.*;
 import java.util.ArrayList;
@@ -31,8 +33,15 @@ public class GestionEmploi implements GestionEmploiLocal {
     // "Insert Code > Add Business Method")
 
     @Override
-    public void creerFicheDePoste(Demande demandePoste, String nomPoste, FicheDePoste.StatutPoste statutPoste, String presentationEntreprise, String presentationPoste) {
-
+    public void creerFicheDePoste(Demande demandePoste, String nomPoste, String presentationEntreprise, String presentationPoste) {
+        FicheDePoste poste = new FicheDePoste();
+        poste.setDemandePoste(demandePoste);
+        poste.setNomPoste(nomPoste);
+        poste.setStatutPoste(FicheDePoste.StatutPoste.Active);
+        poste.setPresentationEntreprise(presentationEntreprise);
+        poste.setPresentationPoste(presentationPoste);
+        
+        facadeFicheDePoste.create(poste);
     }
 
     @Override
@@ -57,7 +66,24 @@ public class GestionEmploi implements GestionEmploiLocal {
         return null;
     }
     
-    public FicheDePoste getFicheDePoste(Long idFicheDePoste){
+    public FicheDePoste getFicheDePosteById(Long idFicheDePoste){
         return facadeFicheDePoste.find(idFicheDePoste);
+    }
+
+    @Override
+    public void creerDemande(Equipe equipe, ArrayList<Competence> competencesDemandees) {
+        Demande demande = new Demande();
+        demande.setEquipeDemandeuse(equipe);
+        demande.setCompetencesDemandees(competencesDemandees);
+        
+        facadeDemande.create(demande);
+    }
+
+    @Override
+    public void modifierDemande(Long idDemande) {
+    }
+
+    @Override
+    public void creerDemandeDeCompetence() {
     }
 }

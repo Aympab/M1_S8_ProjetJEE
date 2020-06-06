@@ -5,7 +5,9 @@
  */
 package fr.miage.business;
 
+import fr.miage.entities.Competence;
 import fr.miage.entities.Demande;
+import fr.miage.entities.Equipe;
 import fr.miage.entities.FicheDePoste;
 import fr.miage.entities.FicheDePoste.StatutPoste;
 import java.util.ArrayList;
@@ -22,19 +24,18 @@ public interface GestionEmploiLocal {
      * Revient à servir une demande de poste
      * @param demandePoste
      * @param nomPoste
-     * @param statutPoste
      * @param presentationEntreprise
      * @param presentationPoste 
      */
-    public void creerFicheDePoste(Demande demandePoste, String nomPoste, StatutPoste statutPoste, String presentationEntreprise, String presentationPoste);
+    public void creerFicheDePoste(Demande demandePoste, String nomPoste, String presentationEntreprise, String presentationPoste);
     public void modifierFicheDePoste(Long idFicheDePoste, Demande demandePoste, String nomPoste, StatutPoste statutPoste, String presentationEntreprise, String presentationPoste);
     public void supprimerFicheDePoste(Long idFicheDePoste);
     public ArrayList<FicheDePoste> listerPostes();
     
     
-//    public void creerDemande(Equipe equipe, ArrayList<Competence> competencesDemandees);
-//    public void modifierDemande(Long idDemande)
-//    public void creerDemandeDeCompetence()
+    public void creerDemande(Equipe equipe, ArrayList<Competence> competencesDemandees);
+    public void modifierDemande(Long idDemande);
+    public void creerDemandeDeCompetence();
     
     
     public void validerDemande(Long idDemande);

@@ -12,7 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -21,19 +20,18 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Demande implements Serializable {
+    //LIENS POUR BD
 
     //Attributs
     @ManyToMany
     private List<Competence> competencesDemandees;
-    
+
     @OneToOne
     private Equipe equipeDemandeuse;
-    
-    //LIENS POUR BD
+
     @OneToOne
     private FicheDePoste fichePosteDemandeuse;
 
-    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -45,6 +43,30 @@ public class Demande implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Competence> getCompetencesDemandees() {
+        return competencesDemandees;
+    }
+
+    public void setCompetencesDemandees(List<Competence> competencesDemandees) {
+        this.competencesDemandees = competencesDemandees;
+    }
+
+    public Equipe getEquipeDemandeuse() {
+        return equipeDemandeuse;
+    }
+
+    public void setEquipeDemandeuse(Equipe equipeDemandeuse) {
+        this.equipeDemandeuse = equipeDemandeuse;
+    }
+
+    public FicheDePoste getFichePosteDemandeuse() {
+        return fichePosteDemandeuse;
+    }
+
+    public void setFichePosteDemandeuse(FicheDePoste fichePosteDemandeuse) {
+        this.fichePosteDemandeuse = fichePosteDemandeuse;
     }
 
     @Override
@@ -71,5 +93,5 @@ public class Demande implements Serializable {
     public String toString() {
         return "fr.miage.entities.Demande[ id=" + id + " ]";
     }
-    
+
 }

@@ -23,11 +23,59 @@ public class Acteur implements Serializable {
     //Attributs
     private String nomActeur;
     private String prenomActeur;
+
+    public String getNomActeur() {
+        return nomActeur;
+    }
+
+    public void setNomActeur(String nomActeur) {
+        this.nomActeur = nomActeur;
+    }
+
+    public String getPrenomActeur() {
+        return prenomActeur;
+    }
+
+    public void setPrenomActeur(String prenomActeur) {
+        this.prenomActeur = prenomActeur;
+    }
+
+    public List<Competence> getListeCompetences() {
+        return listeCompetences;
+    }
+
+    public void setListeCompetences(List<Competence> listeCompetences) {
+        this.listeCompetences = listeCompetences;
+    }
+
+    public RoleActeur getRoleActeur() {
+        return roleActeur;
+    }
+
+    public void setRoleActeur(RoleActeur roleActeur) {
+        this.roleActeur = roleActeur;
+    }
+
+    public List<Candidature> getCandidaturePostulee() {
+        return candidaturePostulee;
+    }
+
+    public void setCandidaturePostulee(List<Candidature> candidaturePostulee) {
+        this.candidaturePostulee = candidaturePostulee;
+    }
+
+    public Equipe getEquipeActeur() {
+        return equipeActeur;
+    }
+
+    public void setEquipeActeur(Equipe equipeActeur) {
+        this.equipeActeur = equipeActeur;
+    }
     
     @OneToMany
     private List<Competence> listeCompetences;
         
-    enum RoleActeur {
+    public enum RoleActeur {
         Candidat,
         Collaborateur,
         RH,

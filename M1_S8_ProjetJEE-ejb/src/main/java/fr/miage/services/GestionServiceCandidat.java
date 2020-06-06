@@ -33,11 +33,15 @@ public class GestionServiceCandidat {
         return gestionEmploi.listerDemandesACombler();
     }
     
-    public FicheDePoste consulterFicheDePoste(Long idFicheDePoste) {
-        return gestionEmploi.getFicheDePoste(idFicheDePoste);
-    }
-    
     public void creerCandidature(Candidature.StatutCandidature statut, Acteur candidat, FicheDePoste poste) {
         gestionCandidature.creerCandidature(statut, candidat, poste);
+    }
+    
+    public Acteur getCandidatById(Long idCandidature) {
+        return gestionCandidature.getCandidatById(idCandidature);
+    }
+    
+    public FicheDePoste getFicheDePosteById(Long idFicheDePoste) {
+        return gestionEmploi.getFicheDePosteById(idFicheDePoste);
     }
 }

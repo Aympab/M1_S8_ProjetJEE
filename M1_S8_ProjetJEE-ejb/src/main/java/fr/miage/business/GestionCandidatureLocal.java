@@ -6,10 +6,13 @@
 package fr.miage.business;
 
 import fr.miage.entities.Acteur;
+import fr.miage.entities.Acteur.RoleActeur;
 import fr.miage.entities.Candidature;
 import fr.miage.entities.Candidature.StatutCandidature;
+import fr.miage.entities.Competence;
 import fr.miage.entities.FicheDePoste;
 import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -18,6 +21,8 @@ import javax.ejb.Local;
  */
 @Local
 public interface GestionCandidatureLocal {
+    
+    public void creerCandidat(String nom, String prenom, List<Competence> listComp);
     
     public void creerCandidature(StatutCandidature statut, Acteur candidat, FicheDePoste poste);
     public void modifierCandidature(Long idCandidature, StatutCandidature statut, ArrayList<Acteur> candidats, FicheDePoste poste);
