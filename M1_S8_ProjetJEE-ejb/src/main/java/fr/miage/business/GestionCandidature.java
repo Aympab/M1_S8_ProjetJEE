@@ -55,6 +55,16 @@ public class GestionCandidature implements GestionCandidatureLocal {
 
     @Override
     public void validerCandidature(Long idCandidature) {
+        
+        Candidature candidature = facadeCandidature.find(idCandidature);
+        candidature.setStatutCandidature(Candidature.StatutCandidature.Validee);
+        
+        Acteur candidat = candidature.getCandidat();
+        candidat.setRoleActeur(Acteur.RoleActeur.Collaborateur);
+        
+        FicheDePoste poste = candidature.getPoste();
+        poste.setStatutPoste(FicheDePoste.StatutPoste.Archivee);
+        
     }
     
     @Override
