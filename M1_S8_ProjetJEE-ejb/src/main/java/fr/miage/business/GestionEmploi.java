@@ -66,8 +66,8 @@ public class GestionEmploi implements GestionEmploiLocal {
         return null;
     }
     
-    public String getFicheDePosteById(Long idFicheDePoste){
-        return facadeFicheDePoste.find(idFicheDePoste).getNomPoste();
+    public FicheDePoste getFicheDePosteById(Long idFicheDePoste){
+        return facadeFicheDePoste.find(idFicheDePoste);
     }
 
     @Override

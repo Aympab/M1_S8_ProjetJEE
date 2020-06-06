@@ -14,7 +14,7 @@ import javax.ejb.LocalBean;
  */
 @Stateless
 @LocalBean
-public class GestionServiceCEO {
+public class ServiceGestionManager {
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")

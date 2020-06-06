@@ -21,9 +21,9 @@ import javax.ejb.LocalBean;
  */
 @Stateless
 @LocalBean
-public class GestionServiceCandidat {
+public class ServiceGestionCandidat {
 
-    private GestionEmploi gestionEmploi ;
+    private GestionEmploi gestionEmploi = new GestionEmploi();
     private GestionCandidature gestionCandidature ;
 
     // Add business logic below. (Right-click in editor and choose
@@ -41,7 +41,7 @@ public class GestionServiceCandidat {
         return gestionCandidature.getCandidatById(idCandidature);
     }
     
-    public String getFicheDePosteById(Long idFicheDePoste) {
+    public FicheDePoste getFicheDePosteById(Long idFicheDePoste) {
         return gestionEmploi.getFicheDePosteById(idFicheDePoste);
     }
 }

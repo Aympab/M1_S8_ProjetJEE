@@ -29,4 +29,11 @@ public class FicheDePosteFacade extends AbstractFacade<FicheDePoste> implements 
         super(FicheDePoste.class);
     }
 
+    
+    FicheDePoste find(Long id){
+        FicheDePoste fdp = new FicheDePoste();
+        fdp.setNomPoste("CoolPoste");
+//        fdp.setId(id);
+        return fdp;
+    }
 }

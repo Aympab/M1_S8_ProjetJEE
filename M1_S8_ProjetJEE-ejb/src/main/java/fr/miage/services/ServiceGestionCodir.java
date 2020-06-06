@@ -21,7 +21,7 @@ import javax.ejb.LocalBean;
  */
 @Stateless
 @LocalBean
-public class GestionServiceCodir {
+public class ServiceGestionCodir {
  
 
     // Add business logic below. (Right-click in editor and choose

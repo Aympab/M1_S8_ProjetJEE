@@ -10,7 +10,7 @@ import fr.miage.entities.Candidature;
 import fr.miage.entities.Candidature.StatutCandidature;
 import fr.miage.entities.Demande;
 import fr.miage.entities.FicheDePoste;
-import fr.miage.services.GestionServiceCandidat;
+import fr.miage.services.ServiceGestionCandidat;
 import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.jws.Oneway;
@@ -26,7 +26,7 @@ import javax.jws.WebService;
 public class ClientFinalCandidatWebService {
 
     @EJB
-    private GestionServiceCandidat ejbRef;// Add business logic below. (Right-click in editor and choose
+    private ServiceGestionCandidat ejbRef;// Add business logic below. (Right-click in editor and choose
     // "Web Service > Add Operation"
 
     @WebMethod(operationName = "listerDemandesACombler")
@@ -35,7 +35,7 @@ public class ClientFinalCandidatWebService {
     }
 
     @WebMethod(operationName = "consulterFicheDePoste")
-    public String consulterFicheDePoste(@WebParam(name = "idFicheDePoste") String idFicheDePoste) {
+    public FicheDePoste consulterFicheDePoste(@WebParam(name = "idFicheDePoste") String idFicheDePoste) {
         return ejbRef.getFicheDePosteById(Long.parseLong(idFicheDePoste));
     }
 
