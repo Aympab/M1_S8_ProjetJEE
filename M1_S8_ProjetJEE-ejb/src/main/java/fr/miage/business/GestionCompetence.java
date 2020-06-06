@@ -8,8 +8,11 @@ package fr.miage.business;
 import fr.miage.entities.Acteur;
 import fr.miage.entities.Competence;
 import fr.miage.entities.Equipe;
+import fr.miage.repositories.ActeurFacade;
 import fr.miage.repositories.ActeurFacadeLocal;
+import fr.miage.repositories.CompetenceFacade;
 import fr.miage.repositories.CompetenceFacadeLocal;
+import fr.miage.repositories.EquipeFacade;
 import fr.miage.repositories.EquipeFacadeLocal;
 import java.util.ArrayList;
 import javax.ejb.EJB;
@@ -23,22 +26,25 @@ import javax.ejb.Stateless;
 public class GestionCompetence implements GestionCompetenceLocal {
 
     @EJB
-    private EquipeFacadeLocal facadeEquipe;
-    
+    private EquipeFacadeLocal facadeEquipe = new EquipeFacade();
+
     @EJB
-    private CompetenceFacadeLocal facadeCompetence;
-    
+    private CompetenceFacadeLocal facadeCompetence = new CompetenceFacade();
+
     @EJB
-    private ActeurFacadeLocal facadeActeur;
-    
+    private ActeurFacadeLocal facadeActeur = new ActeurFacade();
+
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
-
     @Override
     public void creerCompetence(String nomCompetence) {
+//        System.out.println("AEMLAZJE LMIKUAZGE KMUAZGE IOUMAfr.miage.services.ServiceGestionManager.createCompetence()");
+//        System.out.println(nomCompetence);
+
         Competence comp = new Competence();
         comp.setNomCompetence(nomCompetence);
-        
+
+//        System.out.println(comp.getNomCompetence());
         facadeCompetence.create(comp);
     }
 
@@ -74,7 +80,7 @@ public class GestionCompetence implements GestionCompetenceLocal {
     public void creerEquipe(String nomEquipe) {
         Equipe equipe = new Equipe();
         equipe.setNomEquipe(nomEquipe);
-        
+
         facadeEquipe.create(equipe);
     }
 

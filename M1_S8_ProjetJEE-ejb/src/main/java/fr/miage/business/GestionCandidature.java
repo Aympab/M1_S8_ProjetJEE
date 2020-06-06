@@ -9,7 +9,9 @@ import fr.miage.entities.Acteur;
 import fr.miage.entities.Candidature;
 import fr.miage.entities.Competence;
 import fr.miage.entities.FicheDePoste;
+import fr.miage.repositories.ActeurFacade;
 import fr.miage.repositories.ActeurFacadeLocal;
+import fr.miage.repositories.CandidatureFacade;
 import fr.miage.repositories.CandidatureFacadeLocal;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +26,10 @@ import javax.ejb.Stateless;
 public class GestionCandidature implements GestionCandidatureLocal {
 
     @EJB
-    private CandidatureFacadeLocal facadeCandidature;
+    private CandidatureFacadeLocal facadeCandidature = new CandidatureFacade();
     
     @EJB
-    private ActeurFacadeLocal facadeActeur;
+    private ActeurFacadeLocal facadeActeur = new ActeurFacade();
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 

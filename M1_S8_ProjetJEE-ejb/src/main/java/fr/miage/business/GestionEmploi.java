@@ -22,13 +22,13 @@ import javax.ejb.Stateless;
 public class GestionEmploi implements GestionEmploiLocal {
 
     @EJB
-    private ActeurFacadeLocal facadeActeur;
+    private ActeurFacadeLocal facadeActeur = new ActeurFacade();
     
     @EJB
-    private DemandeFacadeLocal facadeDemande;
+    private DemandeFacadeLocal facadeDemande = new DemandeFacade();
     
     @EJB
-    private FicheDePosteFacadeLocal facadeFicheDePoste;
+    private FicheDePosteFacadeLocal facadeFicheDePoste = new FicheDePosteFacade();
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 

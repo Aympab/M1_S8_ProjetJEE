@@ -24,7 +24,7 @@ import javax.ejb.LocalBean;
 public class ServiceGestionCandidat {
 
     private GestionEmploi gestionEmploi = new GestionEmploi();
-    private GestionCandidature gestionCandidature ;
+    private GestionCandidature gestionCandidature = new GestionCandidature() ;
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")

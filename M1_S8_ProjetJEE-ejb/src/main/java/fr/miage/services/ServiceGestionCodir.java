@@ -25,8 +25,8 @@ import javax.ejb.LocalBean;
 @LocalBean
 public class ServiceGestionCodir {
     
-    GestionCompetence gestionCompetence;
-    GestionCandidature gestionCandidature;
+    GestionCompetence gestionCompetence = new GestionCompetence();
+    GestionCandidature gestionCandidature = new GestionCandidature();
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")

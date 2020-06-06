@@ -18,7 +18,7 @@ import javax.persistence.PersistenceContext;
 public class CompetenceFacade extends AbstractFacade<Competence> implements CompetenceFacadeLocal {
 
     @PersistenceContext(unitName = "fr.miage_M1_S8_ProjetJEE-ejb_ejb_1.0PU")
-    private EntityManager em;
+    private EntityManager em;// = new EntityManager();
 
     @Override
     protected EntityManager getEntityManager() {
