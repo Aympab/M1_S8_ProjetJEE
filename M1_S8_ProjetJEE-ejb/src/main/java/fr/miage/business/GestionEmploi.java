@@ -82,8 +82,4 @@ public class GestionEmploi implements GestionEmploiLocal {
     @Override
     public void modifierDemande(Long idDemande) {
     }
-
-    @Override
-    public void creerDemandeDeCompetence() {
-    }
 }
