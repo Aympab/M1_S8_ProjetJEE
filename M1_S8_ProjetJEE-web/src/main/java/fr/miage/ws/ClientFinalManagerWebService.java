@@ -9,6 +9,7 @@ import fr.miage.entities.Competence;
 import fr.miage.entities.Equipe;
 import fr.miage.services.ServiceGestionManager;
 import java.util.ArrayList;
+import java.util.Collection;
 import javax.ejb.EJB;
 import javax.jws.Oneway;
 import javax.jws.WebMethod;
@@ -27,18 +28,16 @@ public class ClientFinalManagerWebService {
     // "Web Service > Add Operation"
 
     @WebMethod(operationName = "listerCompetencesEquipe")
-    public ArrayList<Competence> listerCompetencesEquipe(@WebParam(name = "idEquipe") String idEquipe) {
+    public Collection<Competence> listerCompetencesEquipe(@WebParam(name = "idEquipe") String idEquipe) {
         return ejbRef.listerCompetencesEquipe(Long.parseLong(idEquipe));
     }
 
     @WebMethod(operationName = "createCompetence")
-    @Oneway
     public void createCompetence(@WebParam(name = "nomCompetence") String nomCompetence) {
         ejbRef.createCompetence(nomCompetence);
     }
 
     @WebMethod(operationName = "creerDemande")
-    @Oneway
     public void creerDemande(@WebParam(name = "equipe") Equipe equipe, @WebParam(name = "competencesDemandees") ArrayList<Competence> competencesDemandees) {
         // get equipe id and get equipe 
         // je sais pas comment faire pour la liste de competence 

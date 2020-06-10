@@ -12,6 +12,7 @@ import fr.miage.entities.Demande;
 import fr.miage.entities.FicheDePoste;
 import fr.miage.services.ServiceGestionCandidat;
 import java.util.ArrayList;
+import java.util.Collection;
 import javax.ejb.EJB;
 import javax.jws.Oneway;
 import javax.jws.WebMethod;
@@ -30,7 +31,7 @@ public class ClientFinalCandidatWebService {
     // "Web Service > Add Operation"
 
     @WebMethod(operationName = "listerDemandesACombler")
-    public ArrayList<Demande> listerDemandesACombler() {
+    public Collection<Demande> listerDemandesACombler() {
         return ejbRef.listerDemandesACombler();
     }
 
@@ -40,7 +41,6 @@ public class ClientFinalCandidatWebService {
     }
 
     @WebMethod(operationName = "creerCandidature")
-    @Oneway
     public void creerCandidature(@WebParam(name = "statut") String statut, @WebParam(name = "candidat") String idCandidat, @WebParam(name = "poste") String idPoste) {
 
         StatutCandidature parsedStatus = null;
