@@ -11,6 +11,7 @@ import fr.miage.entities.Equipe;
 import fr.miage.entities.FicheDePoste;
 import fr.miage.entities.FicheDePoste.StatutPoste;
 import java.util.ArrayList;
+import java.util.Collection;
 import javax.ejb.Local;
 
 /**
@@ -43,8 +44,8 @@ public interface GestionEmploiLocal {
      * Permet de lister les demandes qui n'ont pas été servies (c'est à dire les postes vides)
      * @return 
      */
-    public ArrayList<Demande> listerDemandesACombler();
+    public Collection<Demande> listerDemandesACombler();
     
-    
+    public FicheDePoste getFicheDePosteById(Long idFicheDePoste);
     
 }

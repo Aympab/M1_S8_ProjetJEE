@@ -5,11 +5,13 @@
  */
 package fr.miage.services;
 
-import fr.miage.business.GestionCompetence;
-import fr.miage.business.GestionEmploi;
+import fr.miage.business.GestionCompetenceLocal;
+import fr.miage.business.GestionEmploiLocal;
 import fr.miage.entities.Competence;
 import fr.miage.entities.Equipe;
 import java.util.ArrayList;
+import java.util.Collection;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 
@@ -21,12 +23,15 @@ import javax.ejb.LocalBean;
 @LocalBean
 public class ServiceGestionManager {
 
-    GestionCompetence gestionCompetence = new GestionCompetence();
-    GestionEmploi gestionEmploi = new GestionEmploi();
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+    
+    @EJB
+    GestionCompetenceLocal gestionCompetence;// = new GestionCompetence();
+    
+    @EJB
+    GestionEmploiLocal gestionEmploi;// = new GestionEmploi();
+ 
 
-    public ArrayList<Competence> listerCompetencesEquipe(Long idEquipe) {
+    public Collection<Competence> listerCompetencesEquipe(Long idEquipe) {
         return gestionCompetence.listerCompetencesEquipe(idEquipe);
     }
 

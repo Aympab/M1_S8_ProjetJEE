@@ -6,6 +6,8 @@
 package fr.miage.entities;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -91,6 +93,16 @@ public class Equipe implements Serializable {
     @Override
     public String toString() {
         return "fr.miage.entities.Equipe[ id=" + id + " ]";
+    }
+    
+    public Collection<Competence> listerCompetences(){
+        Collection<Competence> comps = new HashSet<>();
+        
+        for(Acteur a : this.membres){
+            comps.addAll(a.getListeCompetences());
+        }
+        
+        return comps;
     }
     
 }

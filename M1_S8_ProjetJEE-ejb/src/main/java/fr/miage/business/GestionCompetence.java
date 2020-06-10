@@ -7,14 +7,18 @@ package fr.miage.business;
 
 import fr.miage.entities.Acteur;
 import fr.miage.entities.Competence;
+import fr.miage.entities.Demande;
 import fr.miage.entities.Equipe;
 import fr.miage.repositories.ActeurFacade;
 import fr.miage.repositories.ActeurFacadeLocal;
 import fr.miage.repositories.CompetenceFacade;
 import fr.miage.repositories.CompetenceFacadeLocal;
+import fr.miage.repositories.DemandeFacadeLocal;
 import fr.miage.repositories.EquipeFacade;
 import fr.miage.repositories.EquipeFacadeLocal;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -26,26 +30,26 @@ import javax.ejb.Stateless;
 public class GestionCompetence implements GestionCompetenceLocal {
 
     @EJB
-    private EquipeFacadeLocal facadeEquipe = new EquipeFacade();
+    private ActeurFacadeLocal acteurFacade;
 
     @EJB
-    private CompetenceFacadeLocal facadeCompetence = new CompetenceFacade();
+    private CompetenceFacadeLocal competenceFacade;
 
     @EJB
-    private ActeurFacadeLocal facadeActeur = new ActeurFacade();
+    private EquipeFacadeLocal equipeFacade;
+    
+    @EJB
+    private DemandeFacadeLocal demandeFacade;
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
     @Override
     public void creerCompetence(String nomCompetence) {
-//        System.out.println("AEMLAZJE LMIKUAZGE KMUAZGE IOUMAfr.miage.services.ServiceGestionManager.createCompetence()");
-//        System.out.println(nomCompetence);
-
         Competence comp = new Competence();
         comp.setNomCompetence(nomCompetence);
 
 //        System.out.println(comp.getNomCompetence());
-        facadeCompetence.create(comp);
+        competenceFacade.create(comp);
     }
 
     @Override
@@ -57,23 +61,34 @@ public class GestionCompetence implements GestionCompetenceLocal {
     }
 
     @Override
-    public ArrayList<Competence> listerCompetences() {
-        return null;
+    public Collection<Competence> listerCompetences() {
+        return competenceFacade.findAll();
     }
 
     @Override
-    public ArrayList<Competence> listerCompetencesEquipe(Long idEquipe) {
-        return null;
+    public Collection<Competence> listerCompetencesEquipe(Long idEquipe) {
+        //On récupère l'équipe
+        Equipe equip = equipeFacade.find(idEquipe);
+        
+        return equip.listerCompetences();
     }
 
     @Override
-    public ArrayList<Competence> listerCompetencesActeur(Long idActeur) {
-        return null;
+    public Collection<Competence> listerCompetencesActeur(Long idActeur) {
+        return acteurFacade.find(idActeur).getListeCompetences();
     }
 
     @Override
-    public ArrayList<Competence> listerCompetencesManquantes() {
-        return null;
+    public Collection<Competence> listerCompetencesManquantes() {
+        //Les compétences manquantes sont celles pour lesquelles il existe une demande de competence
+        Collection<Demande> listeDemande = demandeFacade.findAll();
+        Collection<Competence> compManquantes = new HashSet<Competence>();
+        
+        for(Demande d : listeDemande){
+            compManquantes.addAll(d.getCompetencesDemandees());
+        }
+        
+        return compManquantes;
     }
 
     @Override
@@ -81,7 +96,7 @@ public class GestionCompetence implements GestionCompetenceLocal {
         Equipe equipe = new Equipe();
         equipe.setNomEquipe(nomEquipe);
 
-        facadeEquipe.create(equipe);
+        this.equipeFacade.create(equipe);
     }
 
     @Override

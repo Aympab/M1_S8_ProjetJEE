@@ -6,7 +6,9 @@
 package fr.miage.services;
 
 import fr.miage.business.GestionCandidature;
+import fr.miage.business.GestionCandidatureLocal;
 import fr.miage.business.GestionCompetence;
+import fr.miage.business.GestionCompetenceLocal;
 import fr.miage.business.GestionEmploi;
 import fr.miage.entities.Acteur;
 import fr.miage.entities.Candidature;
@@ -14,6 +16,8 @@ import fr.miage.entities.Competence;
 import fr.miage.entities.Demande;
 import fr.miage.entities.FicheDePoste;
 import java.util.ArrayList;
+import java.util.Collection;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 
@@ -25,13 +29,16 @@ import javax.ejb.LocalBean;
 @LocalBean
 public class ServiceGestionCodir {
     
-    GestionCompetence gestionCompetence = new GestionCompetence();
-    GestionCandidature gestionCandidature = new GestionCandidature();
+    @EJB
+    GestionCompetenceLocal gestionCompetence;// = new GestionCompetence();
+    
+    @EJB
+    GestionCandidatureLocal gestionCandidature;// = new GestionCandidature();
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
     
-    public ArrayList<Competence> listerCompetencesManquantes() {
+    public Collection<Competence> listerCompetencesManquantes() {
         return gestionCompetence.listerCompetencesManquantes();
     }
     

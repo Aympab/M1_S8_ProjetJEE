@@ -3,6 +3,7 @@
   <persistence-unit name="fr.miage_M1_S8_ProjetJEE-ejb_ejb_1.0PU" transaction-type="JTA">
     <jta-data-source>java:app/M1_S8_ProjetJEE_DS</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <shared-cache-mode>NONE</shared-cache-mode>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>

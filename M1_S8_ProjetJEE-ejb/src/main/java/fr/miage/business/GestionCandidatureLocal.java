@@ -36,5 +36,6 @@ public interface GestionCandidatureLocal {
      */
     public void validerCandidature(Long idCandidature);
     
+    public Acteur getCandidatById(Long idCandidat);
     
 }

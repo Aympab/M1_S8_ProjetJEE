@@ -11,6 +11,9 @@ import fr.miage.entities.Equipe;
 import fr.miage.entities.FicheDePoste;
 import fr.miage.repositories.*;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -22,13 +25,13 @@ import javax.ejb.Stateless;
 public class GestionEmploi implements GestionEmploiLocal {
 
     @EJB
-    private ActeurFacadeLocal facadeActeur = new ActeurFacade();
+    private ActeurFacadeLocal facadeActeur;// = new ActeurFacade();
     
     @EJB
-    private DemandeFacadeLocal facadeDemande = new DemandeFacade();
+    private DemandeFacadeLocal facadeDemande;// = new DemandeFacade();
     
     @EJB
-    private FicheDePosteFacadeLocal facadeFicheDePoste = new FicheDePosteFacade();
+    private FicheDePosteFacadeLocal facadeFicheDePoste;// = new FicheDePosteFacade();
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 
@@ -59,13 +62,15 @@ public class GestionEmploi implements GestionEmploiLocal {
 
     @Override
     public void validerDemande(Long idDemande) {
+        
     }
 
     @Override
-    public ArrayList<Demande> listerDemandesACombler() {
-        return null;
+    public Collection<Demande> listerDemandesACombler() {
+        return facadeDemande.findAll();
     }
     
+    @Override
     public FicheDePoste getFicheDePosteById(Long idFicheDePoste){
         return facadeFicheDePoste.find(idFicheDePoste);
     }

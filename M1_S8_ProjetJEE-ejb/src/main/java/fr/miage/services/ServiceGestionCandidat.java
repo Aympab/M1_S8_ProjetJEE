@@ -6,12 +6,16 @@
 package fr.miage.services;
 
 import fr.miage.business.GestionCandidature;
+import fr.miage.business.GestionCandidatureLocal;
 import fr.miage.business.GestionEmploi;
+import fr.miage.business.GestionEmploiLocal;
 import fr.miage.entities.Acteur;
 import fr.miage.entities.Candidature;
 import fr.miage.entities.Demande;
 import fr.miage.entities.FicheDePoste;
 import java.util.ArrayList;
+import java.util.Collection;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 
@@ -23,13 +27,16 @@ import javax.ejb.LocalBean;
 @LocalBean
 public class ServiceGestionCandidat {
 
-    private GestionEmploi gestionEmploi = new GestionEmploi();
-    private GestionCandidature gestionCandidature = new GestionCandidature() ;
+    @EJB
+    private GestionEmploiLocal gestionEmploi;// = new GestionEmploi();
+    
+    @EJB
+    private GestionCandidatureLocal gestionCandidature;// = new GestionCandidature() ;
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
     
-    public ArrayList<Demande> listerDemandesACombler() {
+    public Collection<Demande> listerDemandesACombler() {
         return gestionEmploi.listerDemandesACombler();
     }
     

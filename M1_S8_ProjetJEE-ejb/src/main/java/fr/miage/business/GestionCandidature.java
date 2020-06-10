@@ -26,10 +26,10 @@ import javax.ejb.Stateless;
 public class GestionCandidature implements GestionCandidatureLocal {
 
     @EJB
-    private CandidatureFacadeLocal facadeCandidature = new CandidatureFacade();
-    
+    private CandidatureFacadeLocal facadeCandidature;// = new CandidatureFacade();
+
     @EJB
-    private ActeurFacadeLocal facadeActeur = new ActeurFacade();
+    private ActeurFacadeLocal facadeActeur;// = new ActeurFacade();
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 
@@ -38,7 +38,7 @@ public class GestionCandidature implements GestionCandidatureLocal {
         Candidature candidature = new Candidature();
         candidature.setCandidat(candidat);
         candidature.setPoste(poste);
-        
+
         facadeCandidature.create(candidature);
     }
 
@@ -57,29 +57,30 @@ public class GestionCandidature implements GestionCandidatureLocal {
 
     @Override
     public void validerCandidature(Long idCandidature) {
-        
+
         Candidature candidature = facadeCandidature.find(idCandidature);
         candidature.setStatutCandidature(Candidature.StatutCandidature.Validee);
-        
+
         Acteur candidat = candidature.getCandidat();
         candidat.setRoleActeur(Acteur.RoleActeur.Collaborateur);
-        
+
         FicheDePoste poste = candidature.getPoste();
         poste.setStatutPoste(FicheDePoste.StatutPoste.Archivee);
-        
+
     }
-    
+
     @Override
-    public void creerCandidat(String nom, String prenom, List<Competence> listComp){
+    public void creerCandidat(String nom, String prenom, List<Competence> listComp) {
         Acteur candidat = new Acteur();
         candidat.setNomActeur(nom);
         candidat.setPrenomActeur(prenom);
         candidat.setRoleActeur(Acteur.RoleActeur.Candidat);
         candidat.setListeCompetences(listComp);
-        
+
         facadeActeur.create(candidat);
     }
-    
+
+    @Override
     public Acteur getCandidatById(Long idCandidat) {
         return facadeActeur.find(idCandidat);
     }
