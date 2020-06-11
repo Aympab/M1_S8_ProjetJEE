@@ -1,20 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fr.miage.business;
 
 import fr.miage.entities.Acteur;
 import fr.miage.entities.Competence;
 import fr.miage.entities.Demande;
 import fr.miage.entities.Equipe;
-import fr.miage.repositories.ActeurFacade;
 import fr.miage.repositories.ActeurFacadeLocal;
-import fr.miage.repositories.CompetenceFacade;
 import fr.miage.repositories.CompetenceFacadeLocal;
 import fr.miage.repositories.DemandeFacadeLocal;
-import fr.miage.repositories.EquipeFacade;
 import fr.miage.repositories.EquipeFacadeLocal;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -41,14 +33,11 @@ public class GestionCompetence implements GestionCompetenceLocal {
     @EJB
     private DemandeFacadeLocal demandeFacade;
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
     @Override
     public void creerCompetence(String nomCompetence) {
         Competence comp = new Competence();
         comp.setNomCompetence(nomCompetence);
-
-//        System.out.println(comp.getNomCompetence());
+        
         competenceFacade.create(comp);
     }
 
@@ -82,7 +71,7 @@ public class GestionCompetence implements GestionCompetenceLocal {
     public Collection<Competence> listerCompetencesManquantes() {
         //Les compétences manquantes sont celles pour lesquelles il existe une demande de competence
         Collection<Demande> listeDemande = demandeFacade.findAll();
-        Collection<Competence> compManquantes = new HashSet<Competence>();
+        Collection<Competence> compManquantes = new HashSet<>();
         
         for(Demande d : listeDemande){
             compManquantes.addAll(d.getCompetencesDemandees());
@@ -101,5 +90,20 @@ public class GestionCompetence implements GestionCompetenceLocal {
 
     @Override
     public void supprimerEquipe(Long idEquipe) {
+    }
+
+    @Override
+    public Collection<Acteur> listerCollaborateurs() {
+        Collection<Acteur> acteurs = this.acteurFacade.findAll();
+        
+        Collection<Acteur> collab = new ArrayList<>();
+        
+        for(Acteur a : acteurs){
+            if(a.getRoleActeur() == Acteur.RoleActeur.Collaborateur){
+                collab.add(a);
+            }
+        }
+        
+        return collab;
     }
 }

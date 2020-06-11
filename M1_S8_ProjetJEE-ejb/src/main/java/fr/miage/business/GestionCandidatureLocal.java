@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fr.miage.business;
 
 import fr.miage.entities.Acteur;
-import fr.miage.entities.Acteur.RoleActeur;
 import fr.miage.entities.Candidature;
 import fr.miage.entities.Candidature.StatutCandidature;
 import fr.miage.entities.Competence;

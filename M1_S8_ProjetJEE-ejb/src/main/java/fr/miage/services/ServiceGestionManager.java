@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fr.miage.services;
 
 import fr.miage.business.GestionCompetenceLocal;
@@ -21,7 +16,7 @@ import javax.ejb.LocalBean;
  */
 @Stateless
 @LocalBean
-public class ServiceGestionManager {
+public class ServiceGestionManager implements ServiceGestionManagerLocal {
 
     
     @EJB
@@ -31,19 +26,17 @@ public class ServiceGestionManager {
     GestionEmploiLocal gestionEmploi;// = new GestionEmploi();
  
 
+    @Override
     public Collection<Competence> listerCompetencesEquipe(Long idEquipe) {
         return gestionCompetence.listerCompetencesEquipe(idEquipe);
     }
 
+    @Override
     public void createCompetence(String nomCompetence) {
-//        System.out.println("AEMLAZJE LMIKUAZGE KMUAZGE IOUMAfr.miage.services.ServiceGestionManager.createCompetence()");
-//        System.out.println(nomCompetence);
-        //IL PASSE JUSQUE LA
-
-// demander une compétence aux RH
         gestionCompetence.creerCompetence(nomCompetence);
     }
 
+    @Override
     public void creerDemande(Equipe equipe, ArrayList<Competence> competencesDemandees) {
         gestionEmploi.creerDemande(equipe, competencesDemandees);
     }

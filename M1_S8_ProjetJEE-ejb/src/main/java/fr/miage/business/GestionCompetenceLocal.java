@@ -51,6 +51,8 @@ public interface GestionCompetenceLocal {
     
     public void creerEquipe(String nomEquipe);
     public void supprimerEquipe(Long idEquipe);
+    
+    public Collection<Acteur> listerCollaborateurs();
     // TODO : modifierEquipe
     
     

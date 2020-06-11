@@ -23,12 +23,11 @@ public interface GestionEmploiLocal {
     
     /**
      * Revient à servir une demande de poste
-     * @param demandePoste
      * @param nomPoste
      * @param presentationEntreprise
      * @param presentationPoste 
      */
-    public void creerFicheDePoste(Demande demandePoste, String nomPoste, String presentationEntreprise, String presentationPoste);
+    public void creerFicheDePoste(String nomPoste, String presentationEntreprise, String presentationPoste);
     public void modifierFicheDePoste(Long idFicheDePoste, Demande demandePoste, String nomPoste, StatutPoste statutPoste, String presentationEntreprise, String presentationPoste);
     public void supprimerFicheDePoste(Long idFicheDePoste);
     public ArrayList<FicheDePoste> listerPostes();

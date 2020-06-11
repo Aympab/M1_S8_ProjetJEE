@@ -36,14 +36,14 @@ public class GestionEmploi implements GestionEmploiLocal {
     // "Insert Code > Add Business Method")
 
     @Override
-    public void creerFicheDePoste(Demande demandePoste, String nomPoste, String presentationEntreprise, String presentationPoste) {
+    public void creerFicheDePoste(String nomPoste, String presentationEntreprise, String presentationPoste) {
         FicheDePoste poste = new FicheDePoste();
-        poste.setDemandePoste(demandePoste);
         poste.setNomPoste(nomPoste);
         poste.setStatutPoste(FicheDePoste.StatutPoste.Active);
         poste.setPresentationEntreprise(presentationEntreprise);
         poste.setPresentationPoste(presentationPoste);
         
+//        System.out.println(poste.toString() + "\n"+poste.getNomPoste());
         facadeFicheDePoste.create(poste);
     }
 

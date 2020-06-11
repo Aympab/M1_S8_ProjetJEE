@@ -41,28 +41,28 @@ public class ClientFinalCandidatWebService {
     }
 
     @WebMethod(operationName = "creerCandidature")
-    public void creerCandidature(@WebParam(name = "statut") String statut, @WebParam(name = "candidat") String idCandidat, @WebParam(name = "poste") String idPoste) {
+    public void creerCandidature(@WebParam(name = "candidat") String idCandidat, @WebParam(name = "poste") String idPoste) {
 
-        StatutCandidature parsedStatus = null;
-
-        switch (statut) {
-            case "Validee":
-                parsedStatus = StatutCandidature.Validee;
-                break;
-            case "Refusee":
-                parsedStatus = StatutCandidature.Refusee;
-                break;
-            case "Active":
-                parsedStatus = StatutCandidature.Active;
-                break;
-        }
+//        StatutCandidature parsedStatus = null;
+//
+//        switch (statut) {
+//            case "2":
+//                parsedStatus = StatutCandidature.Validee;
+//                break;
+//            case "1":
+//                parsedStatus = StatutCandidature.Refusee;
+//                break;
+//            case "0":
+//                parsedStatus = StatutCandidature.Active;
+//                break;
+//        }
         
         //TODO :
         //Faire un get sur le ID candidats pour récupérer le bon candidat
         Acteur candidat = ejbRef.getCandidatById(Long.parseLong(idCandidat));
         //Faire un get de la fiche de poste
-//        FicheDePoste poste = ejbRef.getFicheDePosteById(Long.parseLong(idPoste));
-//        ejbRef.creerCandidature(parsedStatus, candidat, poste);
+        FicheDePoste poste = ejbRef.getFicheDePosteById(Long.parseLong(idPoste));
+        ejbRef.creerCandidature(StatutCandidature.Active, candidat, poste);
     }
 
 }

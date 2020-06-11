@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fr.miage.business;
 
 import fr.miage.entities.Acteur;
 import fr.miage.entities.Candidature;
 import fr.miage.entities.Competence;
 import fr.miage.entities.FicheDePoste;
-import fr.miage.repositories.ActeurFacade;
 import fr.miage.repositories.ActeurFacadeLocal;
-import fr.miage.repositories.CandidatureFacade;
 import fr.miage.repositories.CandidatureFacadeLocal;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,14 +23,14 @@ public class GestionCandidature implements GestionCandidatureLocal {
 
     @EJB
     private ActeurFacadeLocal facadeActeur;// = new ActeurFacade();
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+
 
     @Override
     public void creerCandidature(Candidature.StatutCandidature statut, Acteur candidat, FicheDePoste poste) {
         Candidature candidature = new Candidature();
         candidature.setCandidat(candidat);
         candidature.setPoste(poste);
+        candidature.setStatutCandidature(statut);
 
         facadeCandidature.create(candidature);
     }

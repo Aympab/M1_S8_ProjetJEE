@@ -11,7 +11,6 @@ import fr.miage.services.ServiceGestionManager;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.ejb.EJB;
-import javax.jws.Oneway;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
@@ -24,8 +23,7 @@ import javax.jws.WebService;
 public class ClientFinalManagerWebService {
 
     @EJB
-    private ServiceGestionManager ejbRef;// Add business logic below. (Right-click in editor and choose
-    // "Web Service > Add Operation"
+    private ServiceGestionManager ejbRef;
 
     @WebMethod(operationName = "listerCompetencesEquipe")
     public Collection<Competence> listerCompetencesEquipe(@WebParam(name = "idEquipe") String idEquipe) {
